@@ -6,8 +6,8 @@ process leeHom {
     label 'small_memory'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c5/c516f047a2c988518dd5469c4c7d0fd44d84da18d3be62e58d881f56ac9291fb/data :
-    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_isa-l:fb88e4377f4f3859 }"
+    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c5/c516f047a2c988518dd5469c4c7d0fd44d84da18d3be62e58d881f56ac9291fb/data' :
+    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_isa-l:fb88e4377f4f3859' }"
 
     input:
     tuple val(ID), path(r1), path(r2)
@@ -36,8 +36,8 @@ process FASTP {
     label 'small_memory'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c5/c516f047a2c988518dd5469c4c7d0fd44d84da18d3be62e58d881f56ac9291fb/data :
-    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_isa-l:fb88e4377f4f3859 }"
+    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c5/c516f047a2c988518dd5469c4c7d0fd44d84da18d3be62e58d881f56ac9291fb/data' :
+    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_isa-l:fb88e4377f4f3859' }"
 
     input:
     tuple val(ID), path(r1), path(r2), val(FASTP_OVERLAP_LEN_REQUIRE), val(FASTP_MIN_LENGTH)
@@ -111,8 +111,8 @@ process PRINSEQ {
     errorStrategy 'retry' // duplicate removal could oom without nextflow registering it as oom
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c5/c516f047a2c988518dd5469c4c7d0fd44d84da18d3be62e58d881f56ac9291fb/data :
-    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_isa-l:fb88e4377f4f3859 }"
+    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/28/2835042ee3c2735ff00ad1d8f4aa4b5257599834180cef73deab00eec6e3dcc0/data' :
+    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_gzip:cd1132f667c37f35' }"
     input:
     tuple val(ID), path(merged_reads), val(PRINSEQ_COMPLEXITY_METHOD), val(PRINSEQ_COMPLEXITY_THRESHOLD), val(PRINSEQ_MIN_LEN), val(PRINSEQ_DEREP)
 
@@ -168,8 +168,8 @@ process PRINSEQ {
 
 process KRAKEN2 {
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/96/968e68f2ff38c7a89d77ff92c76c3a31df442703f48a72c03249a1b8d78ce80f/data' :
-    'community.wave.seqera.io/library/kraken2_env:16f6b707614e0db3' }"
+    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/8d/8de7ab90e1002c5b19d4a8d4e17326e6aae536942efe6552f2d5e08970bffe1b/data' :
+    'community.wave.seqera.io/library/kraken2_findutils_gzip_pigz:e92f5623225d3eae' }"
 
     publishDir "${params.OUTPUT_Dir}/03_kraken2_filter/${params.MAP_LAST_DB_TAG}", mode: "copy" 
 
@@ -218,8 +218,8 @@ process KRAKEN2 {
 process BOWTIE2 {
     label 'BOWTIE2'
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/09/09ea27c7afa4d58f0df6ba32624bc0b19c61094464cf14e8ac86ecbe85552586/data' :
-    'community.wave.seqera.io/library/com_map:116f2655f1cab2bc' }"
+    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/26/26f0b749201d21505a4f4ae90bd3b46efc080c145876a272aaeb9681a1cfdb9f/data' :
+    'community.wave.seqera.io/library/bowtie2_coreutils_samtools_findutils_pruned:b3e802d80375ae5a' }"
     input:    
         tuple val(ID), path(reads), val(n_allow_multimapper), 
               val(idx), path(idxs)
@@ -893,8 +893,8 @@ process PLOTS_KRONA_BY_SITE {
 process PLOTS_KRONA_BY_SAMPLE {
     label 'small_memory'
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c5/c516f047a2c988518dd5469c4c7d0fd44d84da18d3be62e58d881f56ac9291fb/data :
-    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_isa-l:fb88e4377f4f3859 }"
+    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c5/c516f047a2c988518dd5469c4c7d0fd44d84da18d3be62e58d881f56ac9291fb/data' :
+    'community.wave.seqera.io/library/fastp_krona_leehom_prinseq_isa-l:fb88e4377f4f3859' }"
     publishDir "${params.OUTPUT_Dir}/08_bamdam/$ID/${ID}_${params.MAP_LAST_DB_TAG}", mode: "copy"
     input:
         tuple val(ID), path(xml), path(tsv)
