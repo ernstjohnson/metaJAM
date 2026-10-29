@@ -18,7 +18,7 @@ This pipeline performs processing and analysis of metagenomic data, starting fro
 
 ## Required program
 nextflow (developed in v25.10.4 (e.g., `ml nextflow/25.10.4` in cluster dardel), Please DO NOT USE v26 (config file syntax conflict))\
-conda\
+singularity\
 python3\
 pip3\
 git #optional, as for downloading the repository from github with git. No need for git if you download zip of this repository directly \
