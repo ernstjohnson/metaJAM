@@ -480,8 +480,8 @@ make_bamdam_abundance_plots <- function(bamdam_dir, samples_path, metadata_path,
       column_to_rownames("taxon") %>%
       as.matrix()
 
-    tax_totals <- rowSums(mat)
-    keep_taxa  <- tax_totals >= min_reads
+    tax_max_reads <- apply(mat, 1, max, na.rm = TRUE)
+    keep_taxa     <- tax_max_reads >= min_reads
     mat <- mat[keep_taxa, , drop = FALSE]
     if (nrow(mat) == 0L) return(NULL)
 
@@ -1302,12 +1302,12 @@ make_mmseqs_evaluation_bubbleplot <- function(mmseqs_dir, samples_path, metadata
     return(invisible(NULL))
   }
 
-  # Optional: apply min_reads filter as bamdam (across all samples)
+  # Keep taxa that reach min_reads in at least one sample.
   if (exists("min_reads", inherits = TRUE) && is.numeric(min_reads) && min_reads > 1) {
     keep_taxa <- bam_reads %>%
       group_by(exp_genus_name) %>%
-      summarise(total = sum(bamdam_reads, na.rm = TRUE), .groups = "drop") %>%
-      filter(total >= min_reads) %>%
+      summarise(max_reads = max(bamdam_reads, na.rm = TRUE), .groups = "drop") %>%
+      filter(max_reads >= min_reads) %>%
       pull(exp_genus_name) %>%
       as.character()
     bam_reads <- bam_reads %>% filter(exp_genus_name %in% keep_taxa)

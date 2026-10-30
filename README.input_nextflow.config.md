@@ -176,8 +176,8 @@ MMSeqs2 database\
 `MMSEQS2_AMBIG_FRAC`          (default=0.05)         # Percent of e-value difference for the second best hit for a different genera than the mmseqs2 best hit 
 
 8) *Plots*\
-`PLOTS_BAMDAM_MIN_READS` (default=50)    - Minimum reads per sample to include in bamdam plots\
-`PLOTS_BAMDAM_PLOT_MODE` (default=both)  - Chose which plots to produce: heatmap, bubble or both\
+`PLOTS_MIN_READS` (default=50)    - Minimum reads per sample to include a taxon in bamdam plots\
+`PLOTS_MODE` (default=both)  - Chose which plots to produce: heatmap, bubble or both\
 `PLOTS_DAMAGE_THRESHOLD` (default=3.5)   - Minimum percentage of damage for plotting\
 `PLOTS_PLOT_LOW_DAMAGE_TAXA` (default=0)    # 1 = keep low-damage taxa (default); 0 = drop taxa whose max damage across samples is < PLOTS_DAMAGE_THRESHOLD\
 `PLOTS_EXCLUDE_TAXA` # e.g., "Homo;Zea;Canis;Veronica" in the format of comma / semicolon / space separated (exact taxon name matches)\
