@@ -423,8 +423,8 @@ process NGSLCA {
 
 process BAMDAM {
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c0/c023039a42f6ff2994725fe0c9ed08982c8d41d7a8d4f13060f7a84534cbb6c2/data' :
-    'community.wave.seqera.io/library/bamdam:f61308613d6b0061' }"
+    'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/34/3482692919171839fd56ef9b0fbb5a3c63e7455e40aca90220d49277225bd74f/data' :
+    'community.wave.seqera.io/library/samtools__libgcc_mutex__openmp_mutex_bzip2_pruned:9d707f2aec25f34e' }"
 
     errorStrategy = { task.exitStatus in [143,137,104,134,139,140] ? 'retry' : 'ignore' } 
 

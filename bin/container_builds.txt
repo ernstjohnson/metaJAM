@@ -388,13 +388,14 @@ dependencies:
 
 #### bamdam
 
-Docker: community.wave.seqera.io/library/bamdam:f61308613d6b0061
-Singularity: https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/c0/c023039a42f6ff2994725fe0c9ed08982c8d41d7a8d4f13060f7a84534cbb6c2/data
+Docker: community.wave.seqera.io/library/samtools__libgcc_mutex__openmp_mutex_bzip2_pruned:9d707f2aec25f34e
+Singularity: https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/34/3482692919171839fd56ef9b0fbb5a3c63e7455e40aca90220d49277225bd74f/data
 
 channels:
 - conda-forge
 - bioconda
 dependencies:
+- samtools=1.20
 - _libgcc_mutex=0.1=conda_forge
 - _openmp_mutex=4.5=2_gnu
 - bzip2=1.0.8=hda65f42_8
@@ -422,22 +423,22 @@ dependencies:
 - wheel=0.45.1=pyhd8ed1ab_1
 - zstd=1.5.7=hb78ec9c_6
 - pip:
-    - pysam==0.21.0
-    - bamdam==0.4.3
-    - contourpy==1.3.3
-    - cycler==0.12.1
-    - fonttools==4.61.1
-    - hyperloglog==0.1.5
-    - kiwisolver==1.4.9
-    - matplotlib==3.10.8
-    - msgpack==1.1.2
-    - numpy==2.4.1
-    - packaging==25.0
-    - pillow==12.1.0
-    - pyparsing==3.3.1
-    - python-dateutil==2.9.0.post0
-    - six==1.17.0
-    - tqdm==4.67.1
+  - pysam==0.21.0
+  - bamdam==0.4.3
+  - contourpy==1.3.3
+  - cycler==0.12.1
+  - fonttools==4.61.1
+  - hyperloglog==0.1.5
+  - kiwisolver==1.4.9
+  - matplotlib==3.10.8
+  - msgpack==1.1.2
+  - numpy==2.4.1
+  - packaging==25.0
+  - pillow==12.1.0
+  - pyparsing==3.3.1
+  - python-dateutil==2.9.0.post0
+  - six==1.17.0
+  - tqdm==4.67.1
 
 #### acc2taxid
 
